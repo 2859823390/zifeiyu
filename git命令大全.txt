@@ -1,0 +1,30 @@
+git --version  #查询git版本号
+git config --global user.name  "用户名" #定义用户名
+git config --global user.email  "邮箱"  #定义邮箱
+git config --list  #显示配置信息表
+
+---------------------------------------
+git init  #把文件夹变成git管理的仓库
+git status #查看当前仓库的状态
+git add  文件名   #把一个文件添加到暂存区
+git add .     #把所有文件添加到暂存区
+git commit  -m  提交说明  #把暂存区中的素有文件提交给本地仓库
+git log   #查看当前版本，以及之前的所有版本
+git reflog  #显示所有版本，以及所有恢复记录
+git reset --hard  版本id  #代码回滚到某一个版本
+
+-------------本地仓库推送给网络仓库----------------------
+#把仓库的网络连接命名为origin
+git remote add origin https://github.com/liran0210/web2006.git
+#把本地仓库推送给网络仓库的master分支
+git push -u origin master
+
+--------------把网络仓库的内容拉回本地-----------------------------------
+git clone https://github.com/liran0210/web2006.git
+
+
+
+
+
+创建web2006文件夹，把上述操作重复一遍
+
