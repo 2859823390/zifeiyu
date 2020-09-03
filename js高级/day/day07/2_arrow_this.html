@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      friends:["亮亮","然然","东东"],
+      //intr:function(){//正确
+
+      //intr:()=>{//报错:不能访问undefined的forEach
+      //推断forEach前的对象变成了undefined
+      //this.friends变成了undefined！
+
+      intr(){//ES6 正确, 不改变原来this的指向
+        //遍历friends数组中每个人名
+        //因为将来调用intr时使用的是: lilei.intr()
+        //所以intr()中的this是对的->lilei
+        //lilei.friends可正常访问数组
+        this.friends.forEach(
+          //function(elem){//错误, 回调函数中的this->window
+          elem=>{//正确,内部this与外部正确this保持一致了
+            //回调函数在主函数内被调用时，都是前边既没有点，又没有new，所以绝大多数回调函数中的this->window
+            //window.sname -> undefined
+            //改为箭头函数之后，内部的this自动与外部this保持一致（相通）
+            //内部的this->外部的this->intr点前的lilei
+            //this.sname->lilei.sname 正确
+            console.log(`${this.sname} 认识 ${elem}`)
+          }
+        )
+      }
+    };
+    lilei.intr();
+  </script>
+</body>
+</html>

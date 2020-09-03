@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一、替换this
+        // call 方法
+        // function jisuan(base,bonus1,bonus2){
+        //     console.log(`${this.ename}的总工资是：${base+bonus1+bonus2}`);
+        // }
+        // var lilei={ename:"Li lei"};
+        // var hmm={ename:"Han Meimei"};
+        // jisuan.call(lilei,10000,1000,2000);
+        // jisuan.call(hmm,5000,6000,7000);
+
+        // apply 方法
+        // function jisuan(base,bonus1,bonus2){
+        //     console.log(`${this.ename}的总工资是：${base+bonus1+bonus2}`);
+        // }
+        // var lilei={ename:"Li Lei"};       
+        // var arr=[10000,1000,2000];
+        // jisuan.apply(lilei,arr);
+
+        // var 函数副本=原函数.bind(替换this的对象, 部分固定的实参值, ...)---bind 方法
+        // function jisuan(base,bonus1,bonus2){
+        //     console.log(`${this.ename}的总工资是:${base+bonus1+bonus2}`);
+        // }
+        // var lilei={ename:"Li Lei"};
+        // var jisuan2=jisuan.bind(lilei,10000);
+        // jisuan2(1000,2000);
+        // jisuan2(3000,3000);
+
+        // 二、数组函数
+        // 1.判断
+      
+        // every()  每个 判断数组中是否所有元素都符合要求
+                                     //当前元素值,  当前位置, 当前数组对象
+        // var bool=arr.every(function(  elem   ,      i   ,   arr ){
+		//     return 判断条件
+	    // }) 
+        // 判断数组是否全由偶数组成:
+        // var arr1=[1,2,3,4,5];//false
+        // var arr2=[2,4,6,4,2];//true
+        // var result1=arr1.every(function(elem,i,arr){
+        //     console.log(`arr1.every()调用了一次回调函数，elem=${elem},i=${i},arr=${arr},返回了${elem%2==0}`);
+        //     return elem%2==0;
+        // })
+        // console.log(result1);//flase
+        // var result2=arr2.every(function(elem,i,arr){
+        //     console.log(`arr2.every()调用了一次回调函数，elem=${elem},i=${i},arr=${arr},返回了${elem%2==0}`);
+        //     return elem%2==0;
+        // })
+        // console.log(result2);//true
+
+        // some() 一些 专门判断数组中是否包含符合要求的元素(哪怕只有一个元素符合要求，都返回true)
+        // var bool=arr.some(function(elem,i,arr){
+		//     return 判断条件;
+	    // })
+        // 判断数组中是否包含偶数: 
+        // var arr1=[1,2,3,4,5];
+        // var arr2=[1,3,5,7,9];
+        // var result1=arr1.some(function(elem,i,arr){
+        //    console.log(`arr1.some()调用了一次回调函数，elem=${elem},i=${i},arr=${arr},返回了${elem%2==0}`) ;
+        //     return elem%2==0;
+        // })
+        // console.log(result1);
+        // var result2=arr2.some(function(elem,i,arr){
+        //     console.log(`arr2.some()调用了一次回调函数，elem=${elem},i=${i},arr=${arr},返回了${elem%2==0}`);
+        //     return elem%2==0;
+        // })
+        // console.log(result2);
+
+        // 2.遍历
+
+        // forEach() 历数组中每个元素值，执行相同的操作
+        // arr.forEach(function(elem,i,arr){
+		//     对当前元素值执行操作
+	    // })
+        // 今后，遍历数组中每个元素值，都可用forEach()配合箭头函数简写
+        // 遍历数组中每个人名
+        // var arr=["亮亮","然然","东东"];
+        // arr.forEach(elem=>console.log(`${elem}-到`));
+
+        // map() 依次取出原数组中每个元素值，执行相同操作后，放入新数组中返回。原数组保持不变！
+        // 今后，只要希望保护原数组中的内容不被篡改，而是返回一个新数组副本给别人去使用时，都用map()
+        // var 新数组=arr.map(function(elem,i,arr){
+		//     return 根据当前元素值加工后的一个新值
+	    // })
+        // 取出原数组中的元素值x2后放入新数组中返回
+        // var arr=[1,2,3,4,5];
+        // var arr2=arr.map(function(elem,i,arr){
+        //     console.log(`arr.map()调用了一次回调函数，从原数组${arr}中${i}位置，取出当前元素值elem=${elem},x2后，返回${elem*2}给map,放入新数组中${i}位置`);
+        //     return elem*2;
+        // });
+        // console.log(arr);
+        // console.log(arr2);
+
+        // 3.过滤
+
+        // filter() 仅复制出原数组中符合条件的元素值，放入新数组中返回
+        // 如果先只获得数组中符合条件的元素，都用过滤
+        // var 新数组=arr.filter(function(elem,i,arr){
+		// 		  过滤
+		//     return 判断条件
+	    // })
+        // 获取数组中的偶数
+        // var arr=[1,2,3,4,5];
+        // var arr2=arr.filter(function(elem,i,arr){
+        //     console.log(`arr.filter()调用了一次回调函数。从原数组${arr}中${i}位置取出元素值elem=${elem},经过判断返回${elem%2==0}`);
+        //     return elem%2==0;
+        // });
+        // console.log(arr);
+        // console.log(arr2);
+
+        // 4.汇总
+        //  reduce()  对原数组中每个元素值进行统计，最终得出一个统计结果
+        //                  减少		 临时汇总值, 当前元素值, 当前下标, 当前数组
+	    // var 结果=arr.reduce(function(   box    ,    elem   ,    i    ,    arr    ){
+		//     return box+elem
+	    // } , 起始值)
+        // 统计一个数组中所有元素值的和
+        var arr=[1,2,3,4,5];
+        // var total=arr.reduce(function(box,elem,i,arr){
+        //     console.log(`arr.reduce()调用了一次回调函数，当前临时汇总值box=${box},当前元素值elem=${elem},临时汇总值+当前元素值=新汇总值${box+elem},返回新汇总值暂存起来为汇总下一个元素做准备。`);
+        //     return box+elem;
+        // },0);
+        var total=arr.reduce((box,elem)=>box+elem,0);
+        console.log(total);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(Math.max(1,7,2,5));//最大值7
+    console.log(Math.min(1,7,2,5));//最小值1
+
+    //问题: 程序中保存多个值，通常都是放在数组中
+    var arr=[1,7,2,5];
+    //console.log(Math.max(arr));//NaN
+    //console.log(Math.min(arr));//NaN
+    //用apply
+    //但是本例和this无关！反正替换错了也无所谓
+    // console.log(Math.max.apply(null,arr));
+    // console.log(Math.max.apply("",arr));
+    // console.log(Math.max.apply(arr,arr));
+    // console.log(Math.max.apply(Math,arr));
+    //用...
+    console.log(Math.max(...arr));
+    console.log(Math.min(...arr));
+  </script>
+</body>
+</html>

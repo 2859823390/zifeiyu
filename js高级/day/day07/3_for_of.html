@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr=["亮亮","然然","东东"];
+    // for(var i=0;i<arr.length;i++){
+    //   console.log(`${arr[i]}-到！`)
+    // }
+    //arr.forEach(elem=>console.log(`${elem}-到！`))
+    for(var elem of arr){
+      console.log(`${elem}-到！`)
+    }
+
+    function add(          ){//计算任意多个数的和
+    // arguments[          ].length
+      //          0 1 2 ...
+      var result=0;
+      // for(var i=0;i<arguments.length;i++){
+      //   result+=arguments[i];
+      // }
+      //类数组对象，不是数组家人
+      // arguments.forEach(//报错:arguments.forEach is not a function
+      //   elem=>result+=elem
+      // );
+      for(var elem of arguments){ result+=elem; }
+      return result;
+    }
+    console.log(add(1,2,3));//6
+    console.log(add(1,2,3,4,5));//15
+  </script>
+</body>
+</html>

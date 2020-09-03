@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义函数可以计算任意多个数的和
+    // function add(){//正确
+    // var add=()=>{//错误
+    //   var result=0;
+    //   for(var num of arguments){//报错: arguments is not defined
+    //     result+=num;
+    //   }
+    //   return result;
+    // }
+    //          收集
+    // var add=(...arr)=>{
+    //   //arr数组中自动保存了所有实参值
+    //   //既然arr是数组，就可以调用数组家的reduce求和
+    //   return arr.reduce((box,elem)=>box+elem,0);
+    //          //复习今天上午的箭头函数
+    // };
+    var add=
+      (...arr)=>arr.reduce((box,elem)=>box+elem,0);
+
+    console.log(add(1,2,3))//6
+    console.log(add(1,2,3,4,5))//15
+
+
+    //定义一个计算总工资的函数
+    //                   |收集
+    function jisuan(ename,...arr){
+      var sum=arr.reduce((box,elem)=>box+elem,0);
+      console.log(`${ename}的总工资是${sum}`)
+    }
+    jisuan("Li Lei",10000,1000,2000);//13000
+    jisuan("Han Meimei",3000,4000,5000,6000)//18000
+
+  </script>
+</body>
+</html>

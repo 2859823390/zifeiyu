@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 一、模板字符串
+    // 支持动态生成内容以及换行等格式的特殊字符串。
+    // 今后只要字符串拼接，都要用模板字符串！
+    // 使用模板字符串拼接各种字符串: 
+    // var uname="dingding";
+    // var price=12.5;
+    // var count=5;
+    // console.log(`Welcome ${uname}`);
+    // console.log(`
+    //     单价：￥${price.toFixed(2)}
+    //     数量：${count}
+    //     -----------------------------      
+    //     小计：￥${(price*count).toFixed(2)}
+    // `)
+    // var sex=1;
+    // console.log(`性别：${sex==1?"男":"女"}`);
+    // var orderTime=1596446529596;
+    // console.log(`下单时间：${new Date(orderTime).toLocaleString()}`);
+    // var week=["日","一","二","三","四","五","六"];
+    // var day=new Date().getDay();
+    // console.log(`今天星期${week[day]}`);
+
+    // 二、let
+    // 专门代替var声明变量的新关键词
+    // var有问题: 
+	// (1). 会被声明提前——打乱程序正常的执行顺序
+	// (2). 没有块作用域——{}代码块内的变量，会超出{}范围，影响外部的代码
+    // 演示var的缺点: 
+    // var t=0;
+    // function fun1(){
+    //     console.log(`调用fun1(),耗时0.3s`)
+    //     t+=0.3;
+    // }
+    // function fun2(){
+    //     console.log(`调用fun2(),耗时0.8s`)
+    //     t+=0.8;
+    //     if(false){
+    //         var t=new Date();
+    //         console.log(`当前系统时间：${t.toLocaleString()}`)
+    //     }
+    // }
+    // fun1();
+    // fun2();
+    // console.log(t);
+
+    // 今后只要声明变量，都首先let代替var
+    // 优点: 
+	// (1). 不会被声明提前
+    // (2). 让if,else if,else,for,while,do while等{}也都变成一级作用域！代码块内的变量，出了{}就不允许使用！代码块内的变量，不会影响外部。
+    // 使用let解决上例中var的问题
+    // var t=0;
+    // function fun1(){
+    //     console.log(`调用fun1(),耗时0.3s`)
+    //     t+=0.3;
+    // }
+    // function fun2(){
+    //     console.log(a);
+    //     console.log(`调用fun2(),耗时0.8s`)
+    //     t+=0.8;
+    
+    // if(true){
+    //     let t=new Date();
+    //     console.log(`当前系统时间：${t.toLocaleString()}`);
+    //     var a=10;
+    //     console.log(a);
+    // }
+    // }
+    // fun1();
+    // fun2();
+    // console.log(t);
+
+    // 演示let的小特点: 
+    console.log(a);
+    var a=10;
+    console.log(window.a);
+
+    let b=10;
+    console.log(window.b);
+    
+    </script>
+</body>
+</html>

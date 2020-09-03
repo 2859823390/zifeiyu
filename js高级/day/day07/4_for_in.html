@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //给数组家添加一个自定义sum函数，可对数组中每个元素求和
+    Array.prototype.sum=function(){
+      var result=0;
+      // for(var i=0;i<this.length;i++){
+      //   result+=this[i]
+      // }
+      //this.forEach(elem=>result+=elem);
+      // for(var elem of this){
+      //   result+=elem;
+      // }
+      for(var key in this){
+        //key: 0 1 2 ...
+        result+=this[key];
+      }
+      return result;
+    }
+
+    var arr1=[1,2,3];
+    var arr2=[1,2,3,4,5];
+    console.log(arr1.sum());//6
+    console.log(arr2.sum());//15
+  </script>
+</body>
+</html>

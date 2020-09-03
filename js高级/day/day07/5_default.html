@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function intr(str="主人很懒，什么也没留下"){
+      console.log(`自我介绍:${str}`)
+    }
+    intr("you can you up!");//如果给了实参，就是用用户给的实参。
+    intr();//如果没给实参，就自动启用默认值使用
+
+    //定义一个点餐的函数
+    function order(zhushi="巨无霸",xiaochi="薯条",yinliao="可乐"){
+      console.log(`
+      您本次点的餐包括: 
+        主食:${zhushi},
+        小吃:${xiaochi},
+        饮料:${yinliao}
+      `)
+    }
+    //第一个人，三个实参都提供了
+    order("香辣鸡腿堡","薯条","可乐");
+    //第二个人: 着急赶火车！一个实参都没提供，也想点餐
+    order()//希望全都用默认值
+    //第三个人: 只想换主食为老北京鸡肉卷，别的保持不变
+    order("老北京鸡肉卷");//后两个传入undefined
+    //第四个人: 想换主食和小吃，饮料保持默认
+    order("奥尔良烤腿堡","土豆泥")//最后一个实参传undefined
+
+    //第五个人: 只换小吃，主食和饮料保持默认！
+    //order("菠萝派")//错: 菠萝派给串了！错给了主食
+    //order(,"菠萝派")//错: 语法不允许前边出现空缺的实参
+    //第六个人: 只换饮料，前两个保持默认
+    //order("咖啡")//错: 咖啡错给了主食
+    //order( , , "咖啡")//错: 语法不允许前边出现空缺的实参
+    //暂时无法解决——今天最后才能解决！
+  </script>
+</body>
+</html>
